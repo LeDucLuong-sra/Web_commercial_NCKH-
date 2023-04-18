@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/giohang.css">
+</head>
+
+<body>
+    <div class="giohang">
+        <div class="title-block-page">
+            <h1 class="title-head">Giỏ hàng của bạn</h1>
+        </div>
+
+        <div class="cart-header-info">
+            <div>Thông tin sản phẩm</div>
+            <div>Đơn giá</div>
+            <div>Số lượng</div>
+            <div>Thành tiền</div>
+        </div>
+        {{#each carts}}
+        <div class="cart-item">
+            <div class="cart-product">
+                <div class="cart-img">
+                    <img src="{{this.image}}" alt="">
+                </div>
+                <div class="cart-infor">
+                    <div class="cart-name">
+                        <a href="#" class="name">{{this.name}}</a>
+                        <br>
+                        <form action="/cart/deletecart?_method=DELETE" method="POST">
+                            <input type="text" value="{{this._id}}" name="id" hidden>
+                            <button type="submit"
+                                style="color: red; border: none; text-decoration: none; background-color: #ffff">Xóa</button>
+                        </form>
+                    </div>
+                    <div class="grid">
+                        <div class="grid-item">
+                            <span class="dongia">{{this.giaban}}</span>₫
+                        </div>
+                    </div>
+                    <div class="grid">
+                        <div class="grid-item">
+                            <span class="soluong">{{this.soluongton}}</span>
+                        </div>
+                    </div>
+                    <div class="grid">
+                        <div class="grid-item">
+                            <span class="thanhtien"></span>₫
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        {{/each}}
+        <div class="row">
+            <div class="col">
+                <div class="tongtien">
+                    Tổng tiền:
+                    <span>39.000.0000</span>
+                </div>
+                <div class="thanhtoan">
+                    <button>Thanh toán</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+<script>
+    var giaban = document.querySelectorAll('.dongia');
+    var soluong = document.querySelectorAll('.soluong');
+    var thanhtien = document.querySelectorAll('.thanhtien');
+    var s = '20,000,100';
+    console.log(giaban[0].innerHTML)
+    console.log(parseFloat(giaban[0].innerHTML))
+    console.log(parseFloat(s))
+
+    for (var i = 0; i < giaban.length; i++) {
+        thanhtien[i].innerHTML = parseFloat(giaban[i].innerHTML) * parseFloat(soluong[i].innerHTML);
+    }
+
+</script>
+
+</html>

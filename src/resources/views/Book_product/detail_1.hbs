@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/grid.css">
+    <link rel="stylesheet" href="/css/chiTietSP.css">
+    <link rel="stylesheet" href="/css/chiTietSp2.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="grid wide">
+        <div class="product-path">
+            <span>Sách tiếng việt <i class="fa-solid fa-angle-right"></i> Truyện tranh <i
+                    class="fa-solid fa-angle-right"></i> Truyện tranh thiếu nhi</span>
+        </div>
+        <div class=" product_detail">
+            <div class="product">
+                <div class="product_img" style="background-image: url({{books.image}});">
+                </div>
+                <div class="product_intro">
+                    <div class="product_title">
+                        <h2>{{books.name}}</h2>
+                    </div>
+                    <div class="product_detail_infor">
+                        <div class="product_infor_1">
+                            <div class="product_supplier">
+                                <span>Nhà cung cấp :</span>
+                                <a href="" style="font-weight: 700;">{{books.nhacungcap}}</a>
+                            </div>
+                            <div class="product_author">
+                                <span>Tác giả:</span>
+                                <span style="font-weight: 700;">{{books.tacgia}}</span>
+                            </div>
+                        </div>
+                        <div class="product_infor_2">
+                            <div class="product_trademark">
+                                <span>Nhà xuất bản:</span>
+                                <span style="font-weight: 700;">{{books.nhaXB}}</span>
+                            </div>
+                            <div class="product_form">
+                                <span>Hình thức bìa:</span>
+                                <span style="font-weight: 700;">{{books.loaibia}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product_rating">
+                        <i class=" fas fa-star star"></i>
+                        <i class=" fas fa-star star"></i>
+                        <i class=" fas fa-star star"></i>
+                        <i class=" fas fa-star star"></i>
+                        <i class=" fas fa-star star"></i>
+                        <span style="color:orange;">(0) Đánh giá</span>
+
+                    </div>
+                    <div class="product_cost">
+                        <div class="cost_current">
+                            <span>{{books.giaban}} đ</span>
+                        </div>
+                        <div class="cost_old">
+                            <span>39.000 đ</span>
+                        </div>
+                        <div class="product_sale">
+                            <span>-20%</span>
+                        </div>
+                    </div>
+                    <div class="product_delivery">
+                        <div class="delivery_time">
+                            <span>Thời gian giao hàng</span>
+                            <span>Giao hàng đến </span>
+                            <a href="#">Thay đổi</a>
+                        </div>
+                        <div class="delivery_change">
+                            <span>Chính sách đổi trả</span>
+                            <span>Đổi trả trong vòng 30 ngày </span>
+                            <a href="#">Xem thêm</a>
+                        </div>
+                    </div>
+                    <div class="product_quantity">
+                        <div class="quan_title">
+                            <span>Số lượng :</span>
+                        </div>
+                        <div class="add_quantity">
+                            <i class="fa-solid fa-minus" onclick="sub()"></i>
+                            <span class="soluong">1</span>
+                            <i class="fa-solid fa-plus" onclick="plus()"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="product_shopping">
+                <form action="/cart/addcart" method="POST">
+                    <a href="" style="text-decoration: none;">
+                        <div class="product_card ">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <input type="text" value="{{books.name}}" name="name" hidden>
+                            <input type="text" value="{{books.image}}" name="image" hidden>
+                            <input type="text" value="{{books.giaban}}" name="giaban" hidden>
+                            <input type="text" value="{{books.soluongton}}" name="soluongton" hidden>
+
+                            <button type="submit" style="border: none; text-decoration: none; background-color: #ffff">
+                                Thêm vào giỏ hàng
+                            </button>
+                            {{!--<span>Thêm vào giỏ hàng</span> --}}
+                        </div>
+                    </a>
+                </form>
+                <div class="product_buy">
+                    <span>Mua ngay</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    var soluong = document.querySelector('.soluong');
+    function plus() {
+        soluong.innerHTML = parseInt(soluong.innerHTML) + 1;
+    }
+    function sub() {
+        if (parseInt(soluong.innerHTML) > 0)
+            soluong.innerHTML = parseInt(soluong.innerHTML) - 1;
+        else
+            soluong.innerHTML = 0;
+    }
+</script>
+
+</html>

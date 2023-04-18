@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fonts/fontawesome-free-6.0.0-web/css/all.min.css">
+    <link rel="stylesheet" href="/css/grid.css">
+    <link rel="stylesheet" href="/css/chiTietSP.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="grid wide">
+        <div class="product-path">
+            <span>Đồ dùng <i class="fa-solid fa-angle-right"></i> Bút <i class="fa-solid fa-angle-right"></i>Bút
+                bi</span>
+        </div>
+        <div class=" product_detail">
+            <div class="product">
+                <div class="product_img" style="background-image: url({{data.image}});">
+
+                </div>
+                <div class="product_intro">
+                    <div class="product_title">
+                        <h2>{{data.name}}</h2>
+                    </div>
+                    <div class="product_detail_infor">
+                        <div class="product_infor_1">
+                            <div class="product_supplier">
+                                <span>Nhà cung cấp :</span>
+                                <span style="font-weight: 700;">{{data.ThuongHieu}}</span>
+                            </div>
+                            <div class="product_author">
+                                <span>Thương hiệu :</span>
+                                <span style="font-weight: 700;">{{data.ThuongHieu}}</span>
+                            </div>
+                        </div>
+                        <div class="product_infor_2">
+                            <div class="product_trademark">
+                                <span>Xuất xứ :</span>
+                                <span style="font-weight: 700;">Việt Nam</span>
+                            </div>
+                            <div class="product_form">
+                                <span></span>
+                                <span style="font-weight: 700;"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product_rating">
+                        <i class=" fas fa-star star"></i>
+                        <i class=" fas fa-star star"></i>
+                        <i class=" fas fa-star star"></i>
+                        <i class=" fas fa-star star"></i>
+                        <i class=" fas fa-star star"></i>
+                        <span style="color:orange;">(0) Đánh giá</span>
+
+                    </div>
+                    <div class="product_cost">
+                        <div class="cost_current">
+                            <span>{{data.Gia}}đ</span>
+                        </div>
+                        <div class="cost_old">
+                            <span>25.000 đ</span>
+                        </div>
+                        <div class="product_sale">
+                            <span>-15%</span>
+                        </div>
+                    </div>
+                    <div class="product_delivery">
+                        <div class="delivery_time">
+                            <span>Thời gian giao hàng</span>
+                            <span>Giao hàng đến </span>
+                            <a href="#">Thay đổi</a>
+                        </div>
+                        <div class="delivery_change">
+                            <span>Chính sách đổi trả</span>
+                            <span>Đổi trả trong vòng 30 ngày </span>
+                            <a href="#">Xem thêm</a>
+                        </div>
+                    </div>
+                    <div class="product_quantity">
+                        <div class="quan_title">
+                            <span>Số lượng :</span>
+                        </div>
+                        <div class="add_quantity">
+                            <i class="fa-solid fa-minus"></i>
+                            <span>1</span>
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="product_shopping">
+                <div class="product_card ">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>Thêm vào giỏ hàng</span>
+                </div>
+                <div class="product_buy">
+                    <span>Mua ngay</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
