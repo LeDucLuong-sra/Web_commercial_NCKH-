@@ -25,7 +25,10 @@ const HomeController = {
             user= await jwt.verify(token,'secretKey');
         }
         //console.log(user)
-        res.render('home',{  books: mutipleMongooseToObject(books), fashions:mutipleMongooseToObject(fashions),userInfor: user});
+        res.render('hometest',{  books: mutipleMongooseToObject(books), fashions:mutipleMongooseToObject(fashions),userInfor: user});
+    },
+    index1: async(req, res, next)=> {   
+        res.render('hometest');
     }
     
 }

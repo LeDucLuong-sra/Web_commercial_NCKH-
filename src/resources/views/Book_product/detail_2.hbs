@@ -30,17 +30,17 @@
                         <div class="product_infor_1">
                             <div class="product_supplier">
                                 <span>Nhà cung cấp :</span>
-                                <span style="font-weight: 700;">{{data.ThuongHieu}}</span>
+                                <span style="font-weight: 700;">{{data.nhaCungCap}}</span>
                             </div>
                             <div class="product_author">
                                 <span>Thương hiệu :</span>
-                                <span style="font-weight: 700;">{{data.ThuongHieu}}</span>
+                                <span style="font-weight: 700;">{{data.thuongHieu}}</span>
                             </div>
                         </div>
                         <div class="product_infor_2">
                             <div class="product_trademark">
                                 <span>Xuất xứ :</span>
-                                <span style="font-weight: 700;">Việt Nam</span>
+                                <span style="font-weight: 700;">{{data.xuatXu}}</span>
                             </div>
                             <div class="product_form">
                                 <span></span>
@@ -59,7 +59,7 @@
                     </div>
                     <div class="product_cost">
                         <div class="cost_current">
-                            <span>{{data.Gia}}đ</span>
+                            <span>{{data.giaBan}}đ</span>
                         </div>
                         <div class="cost_old">
                             <span>25.000 đ</span>
@@ -94,10 +94,21 @@
 
             </div>
             <div class="product_shopping">
-                <div class="product_card ">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <span>Thêm vào giỏ hàng</span>
-                </div>
+                <form action="/cart/addcart" method="POST">
+                    <a href="" style="text-decoration: none;">
+                        <div class="product_card ">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <input type="text" value="{{data.name}}" name="name" hidden>
+                            <input type="text" value="{{data.image}}" name="image" hidden>
+                            <input type="text" value="{{data.giaBan}}" name="giaBan" hidden>
+                            <input type="text" value="1" name="soLuong" hidden>
+                            <button type="submit" style="border: none; text-decoration: none; background-color: #ffff">
+                                Thêm vào giỏ hàng
+                            </button>
+                            {{!--<span>Thêm vào giỏ hàng</span> --}}
+                        </div>
+                    </a>
+                </form>
                 <div class="product_buy">
                     <span>Mua ngay</span>
                 </div>
@@ -105,5 +116,9 @@
         </div>
     </div>
 </body>
+<script>
+    var giaban = document.querySelector('.cost_current span');
+    giaban.innerHTML = (new Intl.NumberFormat('vi', { style: 'currency', currency: 'VND' }).format(parseFloat(giaban.innerHTML)));
+</script>
 
 </html>

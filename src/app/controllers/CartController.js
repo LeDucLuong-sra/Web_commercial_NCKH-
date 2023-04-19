@@ -13,13 +13,13 @@ const CartController ={
 
     addItemGioHang: async(req,res)=>{
         try{
-            const {name, image,giaban,soluongton}= req.body;
+            const {name, image,giaBan,soLuong}= req.body;
             const book = await Cart.findOne({name: name});
             //kiem tra san pham da co trong gio hang
             if(book) return res.json("msg: Đã tồn tại san pham trong gio");
             //san pham chua co trong gio hang
             const newCart= new Cart({
-                name, image,giaban,soluongton
+                name, image,giaBan,soLuong
             });
             await newCart.save();
             res.redirect('/cart');

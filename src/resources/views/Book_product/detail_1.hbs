@@ -99,10 +99,11 @@
                             <i class="fa-solid fa-cart-shopping"></i>
                             <input type="text" value="{{books.name}}" name="name" hidden>
                             <input type="text" value="{{books.image}}" name="image" hidden>
-                            <input type="text" value="{{books.giaban}}" name="giaban" hidden>
-                            <input type="text" value="{{books.soluongton}}" name="soluongton" hidden>
+                            <input type="text" value="{{books.giaban}}" name="giaBan" hidden>
+                            <input type="text" value="" name="soLuong" id="postSL" hidden>
 
-                            <button type="submit" style="border: none; text-decoration: none; background-color: #ffff">
+                            <button type="submit" style="border: none; text-decoration: none; background-color: #ffff"
+                                onclick="addcart()">
                                 Thêm vào giỏ hàng
                             </button>
                             {{!--<span>Thêm vào giỏ hàng</span> --}}
@@ -118,6 +119,9 @@
 
 </body>
 <script>
+    var giaban = document.querySelector('.cost_current span');
+    giaban.innerHTML = (new Intl.NumberFormat('vi', { style: 'currency', currency: 'VND' }).format(parseFloat(giaban.innerHTML)));
+
     var soluong = document.querySelector('.soluong');
     function plus() {
         soluong.innerHTML = parseInt(soluong.innerHTML) + 1;
@@ -127,6 +131,11 @@
             soluong.innerHTML = parseInt(soluong.innerHTML) - 1;
         else
             soluong.innerHTML = 0;
+    }
+
+    var postSL = document.querySelector('#postSL');
+    function addcart() {
+        postSL.value = parseInt(soluong.innerHTML);
     }
 </script>
 
