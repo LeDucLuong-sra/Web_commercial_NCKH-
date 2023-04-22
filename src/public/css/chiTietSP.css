@@ -44,9 +44,12 @@
 .product_title h2 {
     font-weight: 400;
     margin-bottom: 20px;
+    word-wrap: break-word;
 }
 
-.product_detail_infor {}
+.product_detail_infor {
+    
+}
 
 .product_infor_2,
 .product_infor_1 {

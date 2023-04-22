@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/pay.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="grid wide oder_pay">
+        <div class="infor_acc">
+            <div class="infor_user_title">
+                <h2>School supplies</h2>
+            </div>
+
+            <div class="infor_pay">
+                <div class="infor">
+                    <div class="infor_user">
+                        <h3 class="infor_title">
+                            Thông tin nhận hàng
+                        </h3>
+                        <div class="user_login">
+                            <a href="" class="user_login_link">
+                                <i class="fa-regular fa-circle-user"></i>
+                                Đăng nhập
+                            </a>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Họ và tên" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Số điện thoại" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" id="city" aria-label=".form-select-sm">
+                            <option value="" selected>Chọn tỉnh thành</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" id="district" aria-label=".form-select-sm">
+                            <option value="" selected>Chọn quận huyện</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" id="ward" aria-label=".form-select-sm">
+                            <option value="" selected>Chọn phường xã</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="" id="" cols="41" rows="8" placeholder="Ghi chú (tùy chọn)"></textarea>
+                    </div>
+                </div>
+
+                <div class="tranfer_pay">
+                    <div class="tranfer">
+                        <div class="tranfer_title">
+                            <h3>Vận chuyển</h3>
+                        </div>
+                        <div class="tranfer_message">
+                            <span>Vui lòng nhập thông tin giao hàng</span>
+                        </div>
+                        <div class="tranfer_expense">
+                            <span>Vận chuyển đến tận nơi </span>
+                            <span>40.000Đ</span>
+                        </div>
+                    </div>
+
+                    <div class="pay">
+                        <div class="pay_title">
+                            <h3>Thanh toán</h3>
+                            <div class="check_box">
+                                <input type="checkbox" name="" id="payment_1">
+                                <label for="payment_1">Thanh toán khi giao hàng (COD)</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="oder_product">
+            <div class="oder_prodcut_title">
+                <h3>Đơn hàng (1 Sản phẩm )</h3>
+            </div>
+            <div class="product_pay">
+                <div class="product_pay-img">
+                    <img src="/format/img/ip14.jpg" alt="" width="50px" height="50px">
+                </div>
+                <div class="product_pay_detail">
+                    <div class="product_pay_title">
+                        Iphone14
+                    </div>
+                    <div class="product_color_cost">
+                        <div class="product_color">
+                            128/ Tím
+                        </div>
+                        <div class="product_cost">
+                            30.000.000đ
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="code_sale">
+                <input class="code" type="text" placeholder="Nhập mã giảm giá">
+                <input class=" excute" type="submit" value="Áp dụng">
+            </div>
+            <div class="cost_caculator">
+                <div class="cost_temporary">
+                    <div> Tạm tính</div>
+                    <span>30.000.000đ</span>
+                </div>
+                <div class="cost_tranfer">
+                    <div>Phí vận chuyển</div>
+                    <span></span>
+                </div>
+            </div>
+            <div class="cost_total">
+                <div>Tổng cộng</div>
+                <span>30.000.000đ</span>
+            </div>
+            <div class="cart_oder">
+                <div class="cart">
+                    <a href="" class="cart-link">
+                        <i class="fa-solid fa-chevron-left"></i>
+                        Quay về giỏ hàng
+                    </a>
+                </div>
+                <div class="oder">
+                    <button type="submit">Đặt hàng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script>
+        var citis = document.getElementById("city");
+        var districts = document.getElementById("district");
+        var wards = document.getElementById("ward");
+        var Parameter = {
+            url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json",
+            method: "GET",
+            responseType: "application/json",
+        };
+        var promise = axios(Parameter);
+        promise.then(function (result) {
+            renderCity(result.data);
+        });
+
+        function renderCity(data) {
+            for (const x of data) {
+                citis.options[citis.options.length] = new Option(x.Name, x.Id);
+            }
+            citis.onchange = function () {
+                district.length = 1;
+                ward.length = 1;
+                if (this.value != "") {
+                    const result = data.filter(n => n.Id === this.value);
+
+                    for (const k of result[0].Districts) {
+                        district.options[district.options.length] = new Option(k.Name, k.Id);
+                    }
+                }
+            };
+            district.onchange = function () {
+                ward.length = 1;
+                const dataCity = data.filter((n) => n.Id === citis.value);
+                if (this.value != "") {
+                    const dataWards = dataCity[0].Districts.filter(n => n.Id === this.value)[0].Wards;
+
+                    for (const w of dataWards) {
+                        wards.options[wards.options.length] = new Option(w.Name, w.Id);
+                    }
+                }
+            };
+        }
+    </script>
+</body>
+
+</html>
