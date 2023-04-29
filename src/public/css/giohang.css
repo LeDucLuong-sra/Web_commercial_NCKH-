@@ -79,39 +79,40 @@ margin-left: 10px;
 .cart-infor{
     display: flex;
     padding-left: 15px;
-    
     padding-right: 10px;
-    display: flex;
     width: calc(100% - 110px);
 }
 .cart-name{
-    width: 50%;
+    width: 49%;
 margin-bottom: 5px;
 }
 .cart-name a{
     text-decoration: none;
 }
 
-.grid{
+/* .grid{
     width: 20%;
     display: flex;
     align-items: center;
     justify-content: center;
+} */
+.grid_cot{
+    width: 16.1%;
+    align-items: center;
+    justify-content: center;
 }
-
 .grid-item{
-    text-align: right;
+    text-align: center;
 }
 
 .thanhtoan{
-
     display: block;
     position: relative;
     padding-top: 20px;
 }
 .thanhtoan button{
     width: 20%;
-    background-color: #eb3e32;
+    background-color: orangered ;
     color: #fff;
     text-align: center;
     line-height: 40px;
@@ -119,7 +120,15 @@ margin-bottom: 5px;
     border: none;
     border-radius: .25rem;
 }
-
+.thanhtoan a{
+    color: white;
+    font-weight: 500;
+    font-size: medium;
+    text-decoration: none;
+}
+.thanhtoan button:hover{
+    background-color: #eb3e32;
+}
 .row{
     display: flex;
     flex-wrap: wrap;

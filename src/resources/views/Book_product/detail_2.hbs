@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="fonts/fontawesome-free-6.0.0-web/css/all.min.css">
-    <link rel="stylesheet" href="/css/grid.css">
+    {{!--
+    <link rel="stylesheet" href="/css/grid.css"> --}}
     <link rel="stylesheet" href="/css/chiTietSP.css">
     <title>Document</title>
 </head>
@@ -102,7 +103,8 @@
                             <input type="text" value="{{data.image}}" name="image" hidden>
                             <input type="text" value="{{data.giaBan}}" name="giaBan" hidden>
                             <input type="text" value="1" name="soLuong" hidden>
-                            <button type="submit" style="border: none; text-decoration: none; background-color: #ffff">
+                            <button type="submit"
+                                style="border: none; text-decoration: none; background-color: #ffff; all: unset;">
                                 Thêm vào giỏ hàng
                             </button>
                             {{!--<span>Thêm vào giỏ hàng</span> --}}
@@ -110,7 +112,7 @@
                     </a>
                 </form>
                 <div class="product_buy">
-                    <span>Mua ngay</span>
+                    <span><a href="/cart/pay" style="all: unset; cursor: pointer;">Mua ngay</a></span>
                 </div>
             </div>
         </div>

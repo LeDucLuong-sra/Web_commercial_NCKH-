@@ -1,135 +1,120 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class="header">
+    <div class=" header_navbar">
+        <div class="grid wide flex-header">
+            <div class="header_banner">
+                <a href="/" class="hbanner_link">School supplies</a>
+            </div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/header.css">
-    <title>Dụng cụ học tập</title>
-</head>
-
-<body>
-
-
-    <div class="header">
-        <div class=" header_navbar">
-            <div class="grid wide flex-header">
-                <div class="header_banner">
-                    <a href="/" class="hbanner_link">School supplies</a>
+            <div class="header_search flex">
+                <div class="search_input">
+                    <input type="text" class="search_input" placeholder="Tìm kiếm">
                 </div>
-
-                <div class="header_search flex">
-                    <div class="search_input">
-                        <input type="text" class="search_input" placeholder="Tìm kiếm">
-                    </div>
-                    <div class="search_icon">
-                        <i class=" fa-solid fa-magnifying-glass"></i>
-                    </div>
-                </div>
-
-                <div class="header_user flex">
-                    <div class="header_user_notify">
-                        <div class="user_notify_icon mar-bot-5">
-                            <i class="fa-regular fa-bell"></i>
-                        </div>
-
-                        <div class="user_notify_title">
-                            <p class=""> Thông báo</p>
-                        </div>
-
-                        <div class="user_notify_list">
-
-                            <div class="notify_list_tiltle">
-                                <i class="fa-regular fa-bell "></i>
-                                <span style="margin-left: 5px;">Thông báo</span>
-
-                            </div>
-                            <div class="notify_img">
-                                <img src="img/khoa.jfif" alt="" width="100px" height="100px">
-                            </div>
-                            <div class="notify_err">
-                                <span>Vui lòng đăng nhập để nhận thông báo</span>
-                            </div>
-                            <div style="margin-left: 10px; ">
-                                <a href="/register">
-                                    <button type="button" title="Đăng ký" class="user_register" onclick="MyFunction()"
-                                        style="background-color: rgb(172, 13, 13) ;">
-                                        <span>Đăng ký</span>
-                                    </button>
-                                </a>
-                            </div>
-                            <div style="margin-left: 10px;">
-                                <a href="/login">
-                                    <button type="button" title="Đăng nhập" class="user_login"
-                                        style="border: 1px solid rgb(150, 5, 5); color:rgb(150, 5, 5)">
-                                        <span>Đăng nhập</span>
-                                    </button></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="header_user_cart">
-                        <div class="user_cart_icon mar-bot-5">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </div>
-
-                        <div class="user_cart_title">
-                            <p>Giỏ hàng</p>
-                        </div>
-
-                    </div>
-
-                    <div class="header_user_acc">
-                        <div class="user_acc mar-bot-5">
-                            <i class="fa-regular fa-user"></i>
-                        </div>
-                        <div class="user_name">
-                            <span>Tài khoản</span>
-                        </div>
-                        <div class="user_connects_list">
-                            <div>
-                                <a href="/register">
-                                    <button type="button" title="Đăng ký" class="user_register"
-                                        style=" background-color: rgb(172, 13, 13) ;">
-                                        <span>Đăng ký</span>
-                                    </button>
-                                </a>
-                            </div>
-                            <div>
-                                <a href="/login">
-                                    <button type="button" title="Đăng nhập" class="user_login"
-                                        style="border: 1px solid rgb(150, 5, 5); color:rgb(150, 5, 5)">
-                                        <span>Đăng nhập</span>
-                                    </button>
-                                </a>
-                            </div>
-                            <div>
-                                <button class="user_login_face  " style="background-color:  #008cff;">
-                                    <i class="fa-brands fa-facebook"></i>
-                                    <span>Đăng nhập bằng Facebook</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                <div class="search_icon">
+                    <i class=" fa-solid fa-magnifying-glass"></i>
                 </div>
             </div>
-        </div>
 
-        <div class=" header_menu">
-            <div class="grid wide header_menu_list">
-                <div class="menu_item"><a href="" class="link_menu_item">Danh mục sản phẩm</a></div>
-                <div class="menu_item"><a href="" class="link_menu_item">Trang chủ</a></div>
-                <div class="menu_item"><a href="" class="link_menu_item">Giới thiệu</a></div>
-                <div class="menu_item"><a href="" class="link_menu_item">Sản phẩm mới</a></div>
-                <div class="menu_item"><a href="" class="link_menu_item">Tin tức</a></div>
-                <div class="menu_item"><a href="" class="link_menu_item">Liên hệ</a></div>
-                <div class="menu_item"><a href="" class="link_menu_item">Khuyến mãi</a></div>
-                <div class="menu_item"><a href="" class="link_menu_item">Đặt hàng</a></div>
+            <div class="header_user flex">
+                <div class="header_user_notify">
+                    <div class="user_notify_icon mar-bot-5">
+                        <i class="fa-regular fa-bell"></i>
+                    </div>
+
+                    <div class="user_notify_title">
+                        <p class=""> Thông báo</p>
+                    </div>
+
+                    <div class="user_notify_list">
+
+                        <div class="notify_list_tiltle">
+                            <i class="fa-regular fa-bell "></i>
+                            <span style="margin-left: 5px;">Thông báo</span>
+
+                        </div>
+                        <div class="notify_img">
+                            <img src="img/khoa.jfif" alt="" width="100px" height="100px">
+                        </div>
+                        <div class="notify_err">
+                            <span>Vui lòng đăng nhập để nhận thông báo</span>
+                        </div>
+                        <div style="margin-left: 10px; ">
+                            <a href="/register">
+                                <button type="button" title="Đăng ký" class="user_register" onclick="MyFunction()"
+                                    style="background-color: rgb(172, 13, 13) ;">
+                                    <span>Đăng ký</span>
+                                </button>
+                            </a>
+                        </div>
+                        <div style="margin-left: 10px;">
+                            <a href="/login">
+                                <button type="button" title="Đăng nhập" class="user_login"
+                                    style="border: 1px solid rgb(150, 5, 5); color:rgb(150, 5, 5)">
+                                    <span>Đăng nhập</span>
+                                </button></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="header_user_cart">
+                    <div class="user_cart_icon mar-bot-5">
+                        <a href="/cart">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+
+                    </div>
+
+                    <div class="user_cart_title">
+                        <p>Giỏ hàng</p>
+                    </div>
+
+                </div>
+
+                <div class="header_user_acc">
+                    <div class="user_acc mar-bot-5">
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+                    <div class="user_name">
+                        <span>Tài khoản</span>
+                    </div>
+                    <div class="user_connects_list">
+                        <div>
+                            <a href="/user/register">
+                                <button type="button" title="Đăng ký" class="user_register"
+                                    style=" background-color: rgb(172, 13, 13) ;">
+                                    <span>Đăng ký</span>
+                                </button>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="/user/login">
+                                <button type="button" title="Đăng nhập" class="user_login"
+                                    style="border: 1px solid rgb(150, 5, 5); color:rgb(150, 5, 5)">
+                                    <span>Đăng nhập</span>
+                                </button>
+                            </a>
+                        </div>
+                        <div>
+                            <button class="user_login_face  " style="background-color:  #008cff;">
+                                <i class="fa-brands fa-facebook"></i>
+                                <span>Đăng nhập bằng Facebook</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-</body>
-
-</html>
+    <div class=" header_menu">
+        <div class="grid wide header_menu_list">
+            <div class="menu_item"><a href="" class="link_menu_item">Danh mục sản phẩm</a></div>
+            <div class="menu_item"><a href="/" class="link_menu_item">Trang chủ</a></div>
+            <div class="menu_item"><a href="" class="link_menu_item">Giới thiệu</a></div>
+            <div class="menu_item"><a href="" class="link_menu_item">Sản phẩm mới</a></div>
+            <div class="menu_item"><a href="/menu/tuyendung" class="link_menu_item">Tin tức</a></div>
+            <div class="menu_item"><a href="/menu/lienhe" class="link_menu_item">Liên hệ</a></div>
+            <div class="menu_item"><a href="" class="link_menu_item">Khuyến mãi</a></div>
+            <div class="menu_item"><a href="" class="link_menu_item">Đặt hàng</a></div>
+        </div>
+    </div>
+</div>

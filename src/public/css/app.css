@@ -1,6 +1,6 @@
-h1 {
+/* h1 {
   color: red;
-}
+} */
 body{
   background-color: #f0f0f0;
 }
@@ -194,6 +194,7 @@ body{
 
 .header_user_notify:hover .user_notify_list {
   display: block;
+  z-index: 1;
 }
 
 .header_user_notify::after {
@@ -719,13 +720,6 @@ a:hover{
 
 /* slide */
 
-.user_login:hover,
-.user_login_face:hover,
-.user_register:hover {
-  font-size: 14px;
-  line-height: 8px;
-}
-
 .slide_sale {
   display: flex;
   margin-top: 20px;
@@ -773,4 +767,76 @@ a:hover{
   font-weight: 400;
   margin-right: 10px;
   cursor: pointer;
+}
+
+/* Footer */
+.footer {
+  border-top: 4px solid #44a9d5;
+  padding-top: 16px;
+  background-color: #fff;
+}
+
+.footer__heading {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.footer__list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.footer-item-link {
+  text-decoration: none;
+  font-size: 14px;
+  color: #737373;
+  padding: 10px 0;
+  display: block;
+  display: flex;
+  align-items: center;
+}
+
+.footer-item-link:hover {
+  color: #44a9d5;
+
+}
+
+.footer-item-icon {
+  margin: -3px 8px 0 0;
+  font-size: 17px;
+}
+
+.footer__download {
+  display: flex;
+}
+
+.footer-qr-img {
+  width: 80px;
+  border: 1px solid #44a9d5;
+}
+
+.footer__download-apps {
+  margin-left: 16px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.footer__download-app-link {
+  text-decoration: none;
+  color: transparent;
+}
+
+.footer-item-app {
+  height: 16px;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+.grid__row {
+  display: flex;
+  margin-left: -5px;
+  margin-right: -5px;
 }

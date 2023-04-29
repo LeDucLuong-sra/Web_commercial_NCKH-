@@ -1,10 +1,10 @@
 
 const MenuController = {
     getLienHe: async(req,res)=>{
-        res.render('menu/lienhe',{layout: false});
+        res.render('menu/lienhe');
     },
     getTuyenDung: async(req,res)=>{
-        res.render('menu/tuyendung',{layout: false});
+        res.render('menu/tuyendung');
     }
     
 }
