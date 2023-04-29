@@ -1,3 +1,45 @@
+<style>
+    #search-input {
+        position: relative;
+    }
+
+    #product-list {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: gray;
+        width: 200px;
+        position: absolute;
+        top: 70px;
+        z-index: 1;
+    }
+
+    #product-list .product_item_search {
+        display: flex;
+        align-items: center;
+        border-bottom: 2px solid #f8f8f8;
+        width: 590px;
+        background-color: #fff;
+        padding: 7px 5px;
+        font-size: 14px;
+        list-style: none;
+    }
+
+    .product_image {
+        width: 70px;
+        height: 70px;
+    }
+
+    .product_image img {
+        border: 0 none;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .product_item_text {
+        margin-top: 5px;
+    }
+</style>
 <div class="header">
     <div class=" header_navbar">
         <div class="grid wide flex-header">
@@ -7,8 +49,44 @@
 
             <div class="header_search flex">
                 <div class="search_input">
-                    <input type="text" class="search_input" placeholder="Tìm kiếm">
+                    <input id="search-input" type="text" class="search_input" placeholder="Tìm kiếm">
                 </div>
+                {{!-- search product --}}
+                <ul id="product-list">
+                    {{#each books}}
+                    <li>
+                        <div class="product_item_search">
+                            <div class="product_image">
+                                <img src="{{this.image}}" alt="but chi">
+                            </div>
+                            <div class="product_item_text" style="margin-left: 10px;">
+                                <span style="color: black;" class="product_name_search"><a
+                                        href="/book/dodunghoctap/{{this.slug}}">{{this.name}}</a></span>
+                                <br>
+                                <span style="color: orangered;">{{this.giaban}} đ</span>
+                            </div>
+                        </div>
+                    </li>
+                    {{/each}}
+                    {{#each fashions}}
+                    <li>
+                        <div class="product_item_search">
+                            <div class="product_image">
+                                <img src="{{this.image}}" alt="but chi">
+                            </div>
+                            <div class="product_item_text" style="margin-left: 10px;">
+                                <span style="color: black;" class="product_name_search"><a
+                                        href="/book/docongnghe/{{this.slug}}">{{this.name}}</a></span>
+                                <br>
+                                <span style="color: orangered;">{{this.giaBan}} đ</span>
+                            </div>
+                        </div>
+                    </li>
+                    {{/each}}
+
+                </ul>
+
+
                 <div class="search_icon">
                     <i class=" fa-solid fa-magnifying-glass"></i>
                 </div>
@@ -118,3 +196,35 @@
         </div>
     </div>
 </div>
+<script>
+
+
+    var product_list = document.querySelector('#product-list');
+    product_list.style.display = 'none';
+    // Lấy giá trị từ ô nhập liệu
+    var search_input = document.getElementById("search-input");
+    search_input.addEventListener('input', function (e) {
+        // Lấy danh sách sản phẩm
+        if (e.target.value)
+            product_list.style.display = 'block';
+        else
+            product_list.style.display = 'none';
+        // Duyệt qua danh sách sản phẩm
+        var products = document.getElementById("product-list").getElementsByTagName("li");
+        var productsName = document.querySelectorAll('.product_name_search');
+
+        for (var i = 0; i < products.length; i++) {
+            var productName = productsName[i].textContent.toLowerCase();
+
+            // Kiểm tra nếu từ khóa xuất hiện trong tên sản phẩm
+            if (productName.includes(e.target.value.toLowerCase())) {
+                products[i].style.display = "block";
+            } else {
+                products[i].style.display = "none";
+            }
+        }
+
+    });
+
+
+</script>

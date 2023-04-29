@@ -4,11 +4,11 @@ const jwt= require('jsonwebtoken')
 const {mutipleMongooseToObject} = require('../../util/mongoose')
 
 const HomeController = {
-    loginTrue: async(req, res, next)=> {       
+    getAPIBook: async(req, res, next)=> {       
         Book.find({})
         .then(books => {
             
-            res.render('home2',{  books: mutipleMongooseToObject(books)});
+            res.json({  books: mutipleMongooseToObject(books)});
         })
         .catch(next);
         },
