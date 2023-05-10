@@ -1,4 +1,5 @@
 const users = require('../models/userModel');
+const Cart = require('../models/cartModel')
 const jwt= require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
@@ -90,6 +91,48 @@ const UserController = {
         }catch(err){
             return res.status(500).json({msg: err.message})
         }
+    },
+    //đang thử nghiệm addcart
+    addcart: async(req,res)=>{
+        try {
+            const user = await users.findById(req.user.id)
+            if(!user) return res.status(400).json({msg: "User does not exist."})
+            
+            //add cart
+            const {name, image,giaBan,soLuong}= req.body;
+            const book = await Cart.findOne({name: name});
+            //kiem tra san pham da co trong gio hang
+            if(book) return res.json({"msg": "Đã tồn tại san pham trong gio"});
+            //san pham chua co trong gio hang
+            const newCart= new Cart({
+                name, image,giaBan,soLuong
+            });
+            await newCart.save();
+
+            //add cart to user
+            const products = await Cart.find({});
+            await users.findOneAndUpdate({_id: req.user.id}, {
+                cart: products
+            })
+
+            return res.json({msg: "Added to cart"})
+        } catch (err) {
+            return res.status(500).json({msg: err.message})
+        }
+    }
+    ,
+    //trả về user infor
+    getUserIf: async(req,res)=>{
+        const token = req.cookies.refreshtoken;
+        let user;
+        if(!token){
+            user= {username: 'Tài khoản'};
+        }
+        else{
+            user= await jwt.verify(token,'secretKey');
+        }
+
+        res.json({UserInfor: user});
     }
     ,
     refreshToken: async(req,res)=>{

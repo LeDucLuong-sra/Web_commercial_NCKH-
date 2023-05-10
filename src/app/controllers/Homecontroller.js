@@ -28,7 +28,19 @@ const HomeController = {
         res.render('hometest',{  books: mutipleMongooseToObject(books), fashions:mutipleMongooseToObject(fashions),userInfor: user});
     },
     index1: async(req, res, next)=> {   
-        res.render('hometest');
+        const books= await Book.find({});   
+        const fashions= await Fashion.find({}); 
+        const token = req.cookies.refreshtoken;
+        let user;
+        if(!token){
+            user= {username: 'tài khoản'};
+        }
+        else{
+            user= await jwt.verify(token,'secretKey');
+        }
+        console.log(user)
+        res.render('partials/header',{  books: mutipleMongooseToObject(books), fashions:mutipleMongooseToObject(fashions),userInfor: user});
+    
     }
     
 }

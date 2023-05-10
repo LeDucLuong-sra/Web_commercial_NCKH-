@@ -25,7 +25,33 @@
         {{/each}}
     </tbody>
 </table>
-
+<table class="table mt-4">
+    <h2>Đồ dùng văn phòng</h2>
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Tên sản phẩm</th>
+            <th scope="col">Nhà sản xuất</th>
+            <th scope="col">Năm xuất hàng</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each fashions}}
+        <tr>
+            <th scope="row">{{sum @index 1}}</th>
+            <td>{{this.name}}</td>
+            <td>{{this.nhaCungCap}}</td>
+            <td>{{this.createAt}}</td>
+            <td>
+                <a href="/book/{{this._id}}/edit" class="btn btn-link">Sửa</a>
+                <a href="/book/{{this._id}}/edit" class="btn btn-link" data-toggle="modal" data-id="{{this._id}}"
+                    data-target="#delete_book">Xóa</a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
 <!-- confirnm delete book-->
 
 <!-- Modal -->

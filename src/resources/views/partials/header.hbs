@@ -39,6 +39,12 @@
     .product_item_text {
         margin-top: 5px;
     }
+
+    .fa-bell:hover,
+    .fa-cart-shopping:hover,
+    .fa-user:hover {
+        color: #008cff;
+    }
 </style>
 <div class="header">
     <div class=" header_navbar">
@@ -116,7 +122,7 @@
                             <span>Vui lòng đăng nhập để nhận thông báo</span>
                         </div>
                         <div style="margin-left: 10px; ">
-                            <a href="/register">
+                            <a href="/user/register">
                                 <button type="button" title="Đăng ký" class="user_register" onclick="MyFunction()"
                                     style="background-color: rgb(172, 13, 13) ;">
                                     <span>Đăng ký</span>
@@ -124,7 +130,7 @@
                             </a>
                         </div>
                         <div style="margin-left: 10px;">
-                            <a href="/login">
+                            <a href="/user/login">
                                 <button type="button" title="Đăng nhập" class="user_login"
                                     style="border: 1px solid rgb(150, 5, 5); color:rgb(150, 5, 5)">
                                     <span>Đăng nhập</span>
@@ -152,7 +158,16 @@
                         <i class="fa-regular fa-user"></i>
                     </div>
                     <div class="user_name">
-                        <span>Tài khoản</span>
+                        <div class="dropdown">
+                            <a class="dropdown-toggle" style="unset:all" data-toggle="dropdown"></a>
+                            <div class="dropdown-menu">
+                                {{!-- <a class="dropdown-item" href="/user/register">Đăng ký</a>
+                                <a class="dropdown-item" href="/user/login">Đăng nhập</a> --}}
+                                <a class="dropdown-item" href="/me/stored/books">Quản lý sản phẩm</a>
+                                <a class="dropdown-item" href="/book/create">Đăng sản phẩm mới</a>
+                                <a class="dropdown-item" href="/user/logout">Đăng Xuất</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="user_connects_list">
                         <div>
@@ -198,6 +213,22 @@
 </div>
 <script>
 
+    //thong tin tai khoan
+    var user_func = document.querySelector('.user_connects_list');
+    var user_infor = document.querySelector('.user_name a');
+    var user_notify_list = document.querySelector('.user_notify_list');
+    //lay thong tin tai khoan
+    fetch("http://localhost:3000/user/getUserInfor")
+        .then(res => res.json())
+        .then(data => {
+            user_infor.innerHTML = data.UserInfor.username;
+            if (user_infor.innerHTML != 'Tài khoản') {
+                user_func.style.display = 'none';
+                user_notify_list.style.display = 'none';
+
+            }
+        })
+    //chuc nang tim kiem san pham
 
     var product_list = document.querySelector('#product-list');
     product_list.style.display = 'none';

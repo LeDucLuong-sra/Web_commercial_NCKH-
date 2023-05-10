@@ -9,5 +9,11 @@ const user = new Schema({
   address:{ type: String, maxLength: 255},
   phone_number:{type: String, maxLength: 255},
   role:{type: Number, default: 1},
+  cart: {
+    type: Array,
+    default: []
+}
+}, {
+  timestamps: true
 });
 module.exports = mongoose.model('Users', user);

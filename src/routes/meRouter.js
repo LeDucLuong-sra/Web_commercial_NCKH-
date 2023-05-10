@@ -3,6 +3,8 @@ const meRouter = express.Router();
 
 const MeController = require('../app/controllers/MeController');
 const auth = require('../middeware/auth');
-meRouter.get('/stored/books',auth, MeController.storedBooks);
+const authAdmin = require('../middeware/authAdmin');
+
+meRouter.get('/stored/books',auth,authAdmin, MeController.storedBooks);
 
 module.exports = meRouter;

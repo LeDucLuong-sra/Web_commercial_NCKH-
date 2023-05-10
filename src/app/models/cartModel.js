@@ -8,7 +8,7 @@ const cart = new Schema({
     giaBan:{type: String, maxLength: 255},
     soLuong:{type: Number, default:1},
     image: {type: String},
-    createAt: { type: Date, default: Date.now},
-    updateAt: { type: Date, default: Date.now}
-});
+}, {
+    timestamps: true
+  });
 module.exports = mongoose.model('carts', cart);

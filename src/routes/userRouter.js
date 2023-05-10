@@ -11,6 +11,8 @@ userRouter.post('/login',userController.login);
 userRouter.get('/register',userController.getRegister);
 userRouter.get('/login',userController.getLogin);
 userRouter.get('/logout',userController.logout);
+userRouter.post('/addcart',auth,userController.addcart);
+userRouter.get('/getUserInfor',userController.getUserIf);
 userRouter.get('/refresh_token',userController.refreshToken);
 userRouter.get('/upload',userController.uploadFile);
 userRouter.get('/',(req,res)=>{

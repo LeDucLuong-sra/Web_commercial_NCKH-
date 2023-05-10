@@ -1,13 +1,14 @@
 const Book = require('../models/Book')
+const Fashion = require('../models/Fashion')
 const {mutipleMongooseToObject} = require('../../util/mongoose')
-class MeController {
+const MeController=  {
     // [Get => /news]
-    storedBooks(req, res,next) {    
-        Book.find({}) 
-        .then( books=> res.render('me/stored-books',{
+    storedBooks: async(req, res, next)=> {       
+        const books= await Book.find({}); 
+        const fashions= await Fashion.find({}); 
+        res.render('me/stored-books',{
             books: mutipleMongooseToObject(books)
-        }))      
-        .catch(next);
-    }
+        , fashions:mutipleMongooseToObject(fashions)});
+        }
 }
-module.exports = new MeController;
+module.exports = MeController;
