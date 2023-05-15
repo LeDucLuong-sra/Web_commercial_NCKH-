@@ -117,10 +117,31 @@
                 </div>
             </div>
         </div>
+        <div class="comment">
+            <h1>đánh giá</h1>
+            <label for="comment_titlle">tài khoản</label>
+            <br>
+            <input class="comment_id" name="comment" type="text" placeholder="nhập bình luận..." value="">
+            <button type="submit" onclick="addComment()">gửi</button>
+            <button type="submit">xóa</button>
+            <br>
+            <span>like</span>
+            <span>trả lời</span>
+
+            <ul class="list_comment" style="list-style: none;">
+                <li class="comment_value"></li>
+            </ul>
+        </div>
     </div>
 
 </body>
 <script>
+    var comment_id = document.querySelector('.comment_id');
+    var list_comment = document.querySelector('.list_comment li');
+    function addComment() {
+        list_comment.innerHTML = comment_id.value;
+    }
+
     var giaban = document.querySelector('.cost_current span');
     giaban.innerHTML = (new Intl.NumberFormat('vi', { style: 'currency', currency: 'VND' }).format(parseFloat(giaban.innerHTML)));
 
