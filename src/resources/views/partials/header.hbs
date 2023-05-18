@@ -159,7 +159,7 @@
                     </div>
                     <div class="user_name">
                         <div class="dropdown">
-                            <a class="dropdown-toggle" style="unset:all" data-toggle="dropdown"></a>
+                            <a class="dropdown-toggle" style="unset:all" data-toggle="dropdown">Tài khoản</a>
                             <div class="dropdown-menu">
                                 {{!-- <a class="dropdown-item" href="/user/register">Đăng ký</a>
                                 <a class="dropdown-item" href="/user/login">Đăng nhập</a> --}}
@@ -221,7 +221,7 @@
     var user_notify_list = document.querySelector('.user_notify_list');
     //lay thong tin tai khoan
     try {
-        fetch("http://localhost:3000/user/getUserInfor")
+        fetch("https://nckh-ecommerce-web.onrender.com/user/getUserInfor")
             .then(res => res.json())
             .then(data => {
                 user_infor.innerHTML = data.UserInfor.username;
