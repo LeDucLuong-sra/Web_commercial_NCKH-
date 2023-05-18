@@ -37,12 +37,12 @@ const UserController = {
 
             res.cookie('refreshtoken', refreshtoken, {
                 httpOnly: true,
-                path: '/user/refresh_token',
+                //path: '/user/refresh_token',
                 maxAge: 7*24*60*60*1000 // 7d
             })
 
-            res.json({accesstoken})
-
+            //res.json({accesstoken})
+            res.redirect('/user/login');
 
         }
         catch(err){
@@ -131,12 +131,13 @@ const UserController = {
         else{
             user= await jwt.verify(token,'secretKey');
         }
-
-        res.json({UserInfor: user});
+        const user_role = await users.findOne({_id: user.id});
+        console.log(user_role);
+        res.json({UserInfor: user,user_role});
     }
     ,
     refreshToken: async(req,res)=>{
-        res.json(req.header("Authorization"));
+        res.json(req.header("Authorization"))
     },
     uploadFile: async(req,res)=>{
         res.render('upload')
